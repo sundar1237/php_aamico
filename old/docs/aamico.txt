@@ -1,0 +1,126 @@
+CREATE TABLE IF NOT EXISTS `order` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `paymentStatus` varchar(25) DEFAULT 'unpaid',
+  `paymentMethod` varchar(25) DEFAULT 'cash',
+  `status` varchar(25) DEFAULT 'new',
+  `type` varchar(25) DEFAULT 'direct',
+  `deliveryType` varchar(25) DEFAULT 'take_away',
+  `price` decimal(10,2) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `totalNoOfItems` SMALLINT  DEFAULT 1,
+  `customerNickName` varchar(25) DEFAULT '',
+  PRIMARY KEY (`id`)
+);
+
+
+
+CREATE TABLE IF NOT EXISTS `extra` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `paymentStatus` varchar(25) DEFAULT 'unpaid',
+  `paymentMethod` varchar(25) DEFAULT 'cash',
+  `status` varchar(25) DEFAULT 'new',
+  `type` varchar(25) DEFAULT 'direct',
+  `deliveryType` varchar(25) DEFAULT 'take_away',
+  `price` decimal(10,2) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `seqNo` SMALLINT  DEFAULT 1,
+  `customerNickName` varchar(25) DEFAULT '',
+  PRIMARY KEY (`id`)
+);
+
+<li <?php echo $page_title=="Cart" ? "class='active'" : ""; ?> >
+                            <a href="cart.php">
+                              <?php
+                                      //count the products in the Cart
+                                      $cart_item = new CartItem($db);
+                                      $cart_item->user_id=1; //default to user iwth ID "1" for now
+                                      $cart_count = $cart_item->count();
+                                  ?>
+                                  Cart <span class="badge" id="comparison-count"><?php echo $cart_count ?></span>
+                            </a>
+                        </li>
+
+
+
+INSERT INTO `product`(`seqNo`,`name`,`description`,`unitPrice`,`productType`, `created`) VALUES 
+(1,'Napoli','Tomaten, Mozzarella, Sardellen, Kapern',9.95,'pizza_30cm',CURDATE()
+),(2,'Marinara','Frische Tomaten, Knoblauch, Basilikum, Sardellen (ohne Mozzarella)',9.95,'pizza_30cm',CURDATE()
+),(3,'Margherita','Mozzarella, Basilikum',9.95,'pizza_30cm',CURDATE()
+),(4,'Quattro Stagioni','Prosciutto di Spalla, Artischocken, Champignons, Peperoni, Oliven',9.95,'pizza_30cm',CURDATE()
+),(5,'Hawaii','Prosciutto di Spalla, Ananas, Basilikum',9.95,'pizza_30cm',CURDATE()
+),(6,'Prosciutto','Prosciutto di Spalla',9.95,'pizza_30cm',CURDATE()
+),(7,'Prosciutto Funghi','Prosciutto di Spalla, Champignons',9.95,'pizza_30cm',CURDATE()
+),(8,'Vegetariana','Diverse Gemüse',9.95,'pizza_30cm',CURDATE()
+),(9,'Diavola','Scharfe Salami, Peperoni, Zwiebeln',9.95,'pizza_30cm',CURDATE()
+),(10,'Carbonara','Speck, Eier, Scharfe Salami, Grana Padano',9.95,'pizza_30cm',CURDATE()
+),(11,'Capricciosa','Prosciutto di Spalla, Salami, Oliven, Artischocken',9.95,'pizza_30cm',CURDATE()
+),(12,'Il Padrino','Poulet, Peperoni, Zwiebeln, Pfefferschoten',12.95,'pizza_30cm',CURDATE()
+),(13,'Heidi','Verschiedene Käsesorten, Rahm Sauce',9.95,'pizza_30cm',CURDATE()
+),(14,'Piemontese','Steinpilze, Knoblauch',9.95,'pizza_30cm',CURDATE()
+),(15,'Melanzane','Grillierte Auberginen',9.95,'pizza_30cm',CURDATE()
+),(16,'Tonno','Thon, Zwiebeln, Kapern',9.95,'pizza_30cm',CURDATE()
+),(17,'Sarracino','Frische Tomaten, Rucola, Feta, Rohschinken',12.95,'pizza_30cm',CURDATE()
+),(18,'Gorgonzola','Gorgonzola',9.95,'pizza_30cm',CURDATE()
+),(19,'Marie-Louise','Frische Tomaten, Rucola, Auberginen, Grana Padano',9.95,'pizza_30cm',CURDATE()
+),(20,'Feta','Frische Tomaten, Mozzarella, Schafkäse, Oliven',9.95,'pizza_30cm',CURDATE()
+),(21,'Deliziosa','Riesencrevetten, Auberginen, Kapern, Zwiebeln, Rucola',12.95,'pizza_30cm',CURDATE()
+),(22,'Gamberoni','Riesencrevetten',12.95,'pizza_30cm',CURDATE()
+),(23,'Sapori di Mare','Meeresfrüchte mit Mischmuscheln und Riesencrevetten',12.95,'pizza_30cm',CURDATE()
+),(24,'Calzone','Artischocken, Champignons, Rohschinken',9.95,'pizza_30cm',CURDATE()
+),(25,'Parmigiana','Grillierte Auberginen, Rohschinken, Grana Padano',12.95,'pizza_30cm',CURDATE()
+),(26,'Kebab Pizza','Kebab Fleisch',12.95,'pizza_30cm',CURDATE()
+),(27,'Marco Polo','Speck, Auberginen, Knoblauch, Scharfe Salami, Chilli',9.95,'pizza_30cm',CURDATE()
+),(28,'Helvetia','Gorgonzola, Mascarpone, Birne',9.95,'pizza_30cm',CURDATE()
+),(29,'Wilhelm Tell','Speck, Schinken, Salami, Grana Padano',9.95,'pizza_30cm',CURDATE()
+),(30,'Ilangai (Ceylon)','Ananas, Erbsen, Curry Powder, Poulet',12.95,'pizza_30cm',CURDATE()
+),(31,'YB','Frische Tomaten, Ananas, Rucola, Oliven',9.95,'pizza_30cm',CURDATE()
+),(32,'Sophia Loren','Frische Tomaten, Mozarella, Santa Lucia, Auberginen, Zucchetti',9.95,'pizza_30cm',CURDATE()
+),(33,'Monica Bellucci','Frische Tomaten, Steinpilze, Knoblauch, Rohschinken',9.95,'pizza_30cm',CURDATE()
+),(34,'Al Pacino','Pikante Salami, Gorgonzola',9.95,'pizza_30cm',CURDATE()
+),(35,'Roberto De Niro','Frische Tomaten, Schafkäse, Rucola',9.95,'pizza_30cm',CURDATE()
+),(36,'SCB','Frische Tomaten, Mascarpone, Rohschinken, Mozarella',9.95,'pizza_30cm',CURDATE()
+),(37,'Marlon Brando','Steinpilze, Poulet, Gorgonzola, Sardellen, Knoblauch',9.95,'pizza_30cm',CURDATE()),
+
+INSERT INTO `product`(`seqNo`,`name`,`description`,`unitPrice`,`productType`, `created`) VALUES 
+(1,'Napoli 40cm','Tomaten, Mozzarella, Sardellen, Kapern',23.95,'pizza_40cm',CURDATE()
+),(2,'Marinara 40cm','Frische Tomaten, Knoblauch, Basilikum, Sardellen (ohne Mozzarella)',19.95,'pizza_40cm',CURDATE()
+),(3,'Margherita 40cm','Mozzarella, Basilikum',18.95,'pizza_40cm',CURDATE()
+),(4,'Quattro Stagioni 40cm','Prosciutto di Spalla, Artischocken, Champignons, Peperoni, Oliven',24.95,'pizza_40cm',CURDATE()
+),(5,'Hawaii 40cm','Prosciutto di Spalla, Ananas, Basilikum',23.95,'pizza_40cm',CURDATE()
+),(6,'Prosciutto 40cm','Prosciutto di Spalla',23.95,'pizza_40cm',CURDATE()
+),(7,'Prosciutto Funghi 40cm','Prosciutto di Spalla, Champignons',23.95,'pizza_40cm',CURDATE()
+),(8,'Vegetariana 40cm','Diverse Gemüse',23.95,'pizza_40cm',CURDATE()
+),(9,'Diavola 40cm','Scharfe Salami, Peperoni, Zwiebeln',24.95,'pizza_40cm',CURDATE()
+),(10,'Carbonara 40cm','Speck, Eier, Scharfe Salami, Grana Padano',25.95,'pizza_40cm',CURDATE()
+),(11,'Capricciosa 40cm','Prosciutto di Spalla, Salami, Oliven, Artischocken',25.95,'pizza_40cm',CURDATE()
+),(12,'Il Padrino 40cm','Poulet, Peperoni, Zwiebeln, Pfefferschoten',28.95,'pizza_40cm',CURDATE()
+),(13,'Heidi 40cm','Verschiedene Käsesorten, Rahm Sauce',23.95,'pizza_40cm',CURDATE()
+),(14,'Piemontese 40cm','Steinpilze, Knoblauch',24.95,'pizza_40cm',CURDATE()
+),(15,'Melanzane 40cm','Grillierte Auberginen',23.95,'pizza_40cm',CURDATE()
+),(16,'Tonno 40cm','Thon, Zwiebeln, Kapern',24.95,'pizza_40cm',CURDATE()
+),(17,'Sarracino 40cm','Frische Tomaten, Rucola, Feta, Rohschinken',27.95,'pizza_40cm',CURDATE()
+),(18,'Gorgonzola 40cm','Gorgonzola',23.95,'pizza_40cm',CURDATE()
+),(19,'Marie-Louise 40cm','Frische Tomaten, Rucola, Auberginen, Grana Padano',23.95,'pizza_40cm',CURDATE()
+),(20,'Feta 40cm','Frische Tomaten, Mozzarella, Schafkäse, Oliven',24.95,'pizza_40cm',CURDATE()
+),(21,'Deliziosa 40cm','Riesencrevetten, Auberginen, Kapern, Zwiebeln, Rucola',27.95,'pizza_40cm',CURDATE()
+),(22,'Gamberoni 40cm','Riesencrevetten',25.95,'pizza_40cm',CURDATE()
+),(23,'Sapori di Mare 40cm','Meeresfrüchte mit Mischmuscheln und Riesencrevetten',28.95,'pizza_40cm',CURDATE()
+),(24,'Calzone 40cm','Artischocken, Champignons, Rohschinken',25.95,'pizza_40cm',CURDATE()
+),(25,'Parmigiana 40cm','Grillierte Auberginen, Rohschinken, Grana Padano',25.95,'pizza_40cm',CURDATE()
+),(26,'Kebab Pizza 40cm','Kebab Fleisch',27.95,'pizza_40cm',CURDATE()
+),(27,'Marco Polo 40cm','Speck, Auberginen, Knoblauch, Scharfe Salami, Chilli',25.95,'pizza_40cm',CURDATE()
+),(28,'Helvetia 40cm','Gorgonzola, Mascarpone, Birne',26.95,'pizza_40cm',CURDATE()
+),(29,'Wilhelm Tell 40cm','Speck, Schinken, Salami, Grana Padano',26.95,'pizza_40cm',CURDATE()
+),(30,'Ilangai (Ceylon) 40cm','Ananas, Erbsen, Curry Powder, Poulet',27.95,'pizza_40cm',CURDATE()
+),(31,'YB 40cm','Frische Tomaten, Ananas, Rucola, Oliven',25.95,'pizza_40cm',CURDATE()
+),(32,'Sophia Loren 40cm','Frische Tomaten, Mozarella, Santa Lucia, Auberginen, Zucchetti',27.95,'pizza_40cm',CURDATE()
+),(33,'Monica Bellucci 40cm','Frische Tomaten, Steinpilze, Knoblauch, Rohschinken',25.95,'pizza_40cm',CURDATE()
+),(34,'Al Pacino 40cm','Pikante Salami, Gorgonzola',26.95,'pizza_40cm',CURDATE()
+),(35,'Roberto De Niro 40cm','Frische Tomaten, Schafkäse, Rucola',26.95,'pizza_40cm',CURDATE()
+),(36,'SCB 40cm','Frische Tomaten, Mascarpone, Rohschinken, Mozarella',25.95,'pizza_40cm',CURDATE()
+),(37,'Marlon Brando 40cm','Steinpilze, Poulet, Gorgonzola, Sardellen, Knoblauch',27.95,'pizza_40cm',CURDATE()),
+
+
+

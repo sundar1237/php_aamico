@@ -19,3 +19,25 @@ font-size:13px;
 font-size:14px;
 color:#ff6600;
 }
+/*my changes*/
+
+#atc_button{
+	font-size:14px;
+	color:#cc0000;	
+}
+
+#add_to_cart{
+	border:1px solid #ffd633;padding: 1px; margin: 1px; color:#cc3300;font-weight:bold;
+}
+#mycontainer{
+	background:#ffcc66;
+	color:#cc3300;
+}
+
+#mymainTablePizzaListRow{
+	 color:#cc3300;font-weight:bold;
+}
+
+#mytabheaders{
+	color:#cc3300;font-weight:bold;background:#ffdd99;border:1px solid #ffb31a
+}

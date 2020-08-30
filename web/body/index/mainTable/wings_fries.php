@@ -9,12 +9,12 @@ $salat = getFetchArray("select * from product where productType='salat' order by
 	<div class="row">
 		<div class="col">
 			<nav aria-label="breadcrumb">
-				<ol class="breadcrumb">
-					<li aria-current="page" class="breadcrumb-item active">Wings &
+				<ol class="breadcrumb" style='background:none;'>
+					<li aria-current="page" class="breadcrumb-item active" style='font-weight:bold;color:#cc3300;'>Wings &
 						Fries (Klein)</li>
 				</ol>
 			</nav>
-			<table class="table table-hover" style="background: #ffffe6;">
+			<table class="table table-hover">
 				<thead>
 					<tr style="color: #b32d00;">
 						<th scope="col">Name</th>
@@ -28,13 +28,13 @@ $salat = getFetchArray("select * from product where productType='salat' order by
     foreach ($wings_klein as $row) {
         if ($count <= 18) {
         ?>
- 			<tr style="color: #b32d00; font-weight: bold;">
+ 			<tr id='mymainTablePizzaListRow'>
 				<td><?php echo $count.".".$row['name']?></td>
 				<td><small><?php echo $row['description']?></small></td>
 				<td style="width: 15%">
-					<button class="btn btn-success btn-sm btn-action" data-url="atc.php?id=<?php echo $row['id']?>" style="padding: 0px; margin: 0px; color: white" type="button">
+					<button title='Add to cart' class="btn btn-link btn-sm btn-action" data-url="atc.php?id=<?php echo $row['id']?>" id='add_to_cart' type="button">
 						<?php echo $row['unitPrice']?> 
-						<span class="badge badge-light"><i aria-hidden="true" class="fa fa-cart-arrow-down"></i></span>
+						<!-- <span class="badge badge-light"><i aria-hidden="true" class="fa fa-cart-arrow-down"></i></span> -->
 					</button>
 				</td>				
 			</tr>					 
@@ -46,11 +46,11 @@ $salat = getFetchArray("select * from product where productType='salat' order by
 				</tbody>
 			</table>
 			<nav aria-label="breadcrumb">
-				<ol class="breadcrumb">
-					<li aria-current="page" class="breadcrumb-item active">Pasta</li>
+				<ol class="breadcrumb" style='background:none;'>
+					<li aria-current="page" class="breadcrumb-item active" style='font-weight:bold;color:#cc3300;'>Pasta</li>
 				</ol>
 			</nav>
-			<table class="table table-hover" style="background: #ffffe6;">
+			<table class="table table-hover">
 				<thead>
 					<tr style="color: #b32d00;">
 						<th scope="col">Name</th>
@@ -64,13 +64,13 @@ $salat = getFetchArray("select * from product where productType='salat' order by
     foreach ($pasta as $row) {
         if ($count <= 18) {
         ?>
- 			<tr style="color: #b32d00; font-weight: bold;">
+ 			<tr id='mymainTablePizzaListRow'>
 				<td><?php echo $count.".".$row['name']?></td>
 				<td><small><?php echo $row['description']?></small></td>
 				<td style="width: 15%">
-					<button class="btn btn-success btn-sm btn-action" data-url="atc.php?id=<?php echo $row['id']?>" style="padding: 0px; margin: 0px; color: white" type="button">
+					<button title='Add to cart' class="btn btn-link btn-sm btn-action" data-url="atc.php?id=<?php echo $row['id']?>" id='add_to_cart' type="button">
 						<?php echo $row['unitPrice']?> 
-						<span class="badge badge-light"><i aria-hidden="true" class="fa fa-cart-arrow-down"></i></span>
+						<!-- <span class="badge badge-light"><i aria-hidden="true" class="fa fa-cart-arrow-down"></i></span> -->
 					</button>
 				</td>				
 			</tr>					 
@@ -85,11 +85,11 @@ $salat = getFetchArray("select * from product where productType='salat' order by
 		</div>
 		<div class="col">
 			<nav aria-label="breadcrumb">
-				<ol class="breadcrumb">
-					<li aria-current="page" class="breadcrumb-item active">Wings & Fries (Grösse)</li>
+				<ol class="breadcrumb" style='background:none;'>
+					<li aria-current="page" class="breadcrumb-item active" style='font-weight:bold;color:#cc3300;'>Wings & Fries (Grösse)</li>
 				</ol>
 			</nav>
-			<table class="table table-hover" style="background: #ffffe6;">
+			<table class="table table-hover" >
 				<thead>
 					<tr style="color: #b32d00;">
 						<th scope="col">Name</th>
@@ -103,13 +103,13 @@ $salat = getFetchArray("select * from product where productType='salat' order by
     foreach ($wings_gross as $row) {
         if ($count <= 18) {
         ?>
- 			<tr style="color: #b32d00; font-weight: bold;">
+ 			<tr id='mymainTablePizzaListRow'>
 				<td><?php echo $count.".".$row['name']?></td>
 				<td><small><?php echo $row['description']?></small></td>
 				<td style="width: 15%">
-					<button class="btn btn-success btn-sm btn-action" data-url="atc.php?id=<?php echo $row['id']?>" style="padding: 0px; margin: 0px; color: white" type="button">
+					<button title='Add to cart' class="btn btn-link btn-sm btn-action" data-url="atc.php?id=<?php echo $row['id']?>" id='add_to_cart' type="button">
 						<?php echo $row['unitPrice']?> 
-						<span class="badge badge-light"><i aria-hidden="true" class="fa fa-cart-arrow-down"></i></span>
+						<!-- <span class="badge badge-light"><i aria-hidden="true" class="fa fa-cart-arrow-down"></i></span> -->
 					</button>
 				</td>				
 			</tr>					 
@@ -121,13 +121,13 @@ $salat = getFetchArray("select * from product where productType='salat' order by
 				</tbody>
 			</table>
 			<nav aria-label="breadcrumb">
-				<ol class="breadcrumb">
-					<li aria-current="page" class="breadcrumb-item active">Salat</li>
+				<ol class="breadcrumb" style='background:none;'>
+					<li aria-current="page" class="breadcrumb-item active" style='font-weight:bold;color:#cc3300;'>Salat</li>
 				</ol>
 			</nav>
-			<table class="table table-hover" style="background: #ffffe6;">
+			<table class="table table-hover">
 				<thead>
-					<tr style="color: #b32d00;">
+					<tr id='mymainTablePizzaListRow'>
 						<th scope="col">Name</th>
 						<th scope="col">Description</th>
 						<th scope="col" style="width: 15%">Price</th>
@@ -139,13 +139,13 @@ $salat = getFetchArray("select * from product where productType='salat' order by
     foreach ($salat as $row) {
         if ($count <= 18) {
         ?>
- 			<tr style="color: #b32d00; font-weight: bold;">
+ 			<tr id='mymainTablePizzaListRow'>
 				<td><?php echo $count.".".$row['name']?></td>
 				<td><small><?php echo $row['description']?></small></td>
 				<td style="width: 15%">
-					<button class="btn btn-success btn-sm btn-action" data-url="atc.php?id=<?php echo $row['id']?>" style="padding: 0px; margin: 0px; color: white" type="button">
+					<button title='Add to cart' class="btn btn-link btn-sm btn-action" id='add_to_cart' data-url="atc.php?id=<?php echo $row['id']?>" type="button">
 						<?php echo $row['unitPrice']?> 
-						<span class="badge badge-light"><i aria-hidden="true" class="fa fa-cart-arrow-down"></i></span>
+						<!-- <span class="badge badge-light"><i aria-hidden="true" class="fa fa-cart-arrow-down"></i></span> -->
 					</button>
 				</td>				
 			</tr>					 

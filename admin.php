@@ -44,6 +44,11 @@ if (isset($_POST['action']) && "verifyUser" == $_POST['action']) {
     include_once 'web/body/admin/login/login.php';
     displayLoginPage('');
 }else{
-    include_once 'web/body/admin/mainTable/main.php';
+    if (isset($_SESSION['role']) && $_SESSION['role'] != 'guest'){
+        include_once 'web/body/admin/mainTable/main.php';
+    }else{
+        include_once 'web/body/admin/login/login.php';
+        displayLoginPage('');
+    }
 }
 ?>

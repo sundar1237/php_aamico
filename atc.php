@@ -17,14 +17,17 @@ if (isset($_GET['id']) && strlen($_GET['id']) != 0) {
     //view order
     include 'funcs/order/confirmedOrder.php';
 } else if (isset($_POST['product_id']) && strlen($_POST['product_id']) != 0) {
+    
     include 'funcs/order/order.php';
     session_start();
     add_to_session();
     header('Location: /aamico/');
 } else if (isset($_POST['action']) && $_POST['action'] == "confirm_order") {
-    // insert into database
-    include 'funcs/order/order.php';
+    // insert into database and send a mail
     session_start();
+    include 'funcs/common/utils.php';
+    include 'funcs/order/order.php';
+    
     $order_id = confirm_order();
     unset($_SESSION["orderItemList"]);
     header('Location: /aamico/atc.php?order_id=' . $order_id);

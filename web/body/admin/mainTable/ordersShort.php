@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
-	<meta http-equiv="refresh" content="5; URL=http://localhost:66/aamico/admin.php?action=ordersShort">
+	<meta http-equiv="refresh" content="5; URL=/aamico/admin.php?action=ordersShort">
 	<meta charset="UTF-8">
     <meta name="description" content="Ogani Template">
     <meta name="keywords" content="Ogani, unica, creative, html">

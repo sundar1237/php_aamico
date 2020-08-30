@@ -4,38 +4,13 @@
 <html lang="zxx">
 <?php include 'web/head.php'; getHead("Check out");?>
 <body>
-    <!-- Page Preloder -->
-	<div id="preloder">
-		<div class="loader"></div>
-	</div>
-	<!-- Header Section Begin -->
-	<?php include 'web/body/header.php';?>    
-    <!-- Header Section End -->
-	<div class="container-fluid">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<?php getbody(); ?>
-                    <form>
-						<button class="btn btn-secondary btn-sm" onclick="alert('Remove All?')" type="button">Remove All</button>
-            		</form>
-					<hr>
-					<p>
-						<a aria-controls="collapseExample" aria-expanded="false"
-							class="btn btn-secondary btn-sm" data-toggle="collapse"
-							href="#collapseExample" role="button"> Terms & Conditions </a>
-					</p>
-					<div class="collapse" id="collapseExample"
-						style="margin: 5px; padding: 5px;">
-						<div class="card card-body">Anim pariatur cliche reprehenderit,
-							enim eiusmod high life accusamus terry richardson ad squid. Nihil
-							anim keffiyeh helvetica, craft beer labore wes anderson cred
-							nesciunt sapiente ea proident.</div>
-					</div>
-				</div>
-			</div>
+    <!-- Header Section End ffcc00 66 -->
+	<div class="container-fluid" id='mycontainer' style='height: 980px;width:100%;'>
+		<?php include 'web/body/header.php';?>		
+		<div class="row">
+			<?php getbody(); ?>	
 		</div>
-	</div>
+	</div>	
 
 <script src="js/jquery-3.5.1.min.js"></script>
 <script src="js/typeahead.bundle.js" type="text/javascript"></script>
@@ -65,9 +40,9 @@ $(document).ready(function() {
 
 
 <?php function getbody(){?>
-
+<div class="container">
 <div class="jumbotron jumbotron-fluid"
-	style="margin: 5px; padding: 5px;">
+	style="margin: 5px; padding: 5px;background:none;">
 	<div class="container">
 		<h1 class="display-4">Checkout</h1>
 		<div>
@@ -79,7 +54,7 @@ $(document).ready(function() {
 	<input type="hidden" name="action" value="confirm_order">
 	<table class="table table-hover" style="font-size: 14px;">
 		<thead>
-			<tr>
+			<tr id='mymainTablePizzaListRow'>
 				<th scope="col">Name</th>
 				<th scope="col">Unit Price</th>
 				<th scope="col">Extra Price</th>
@@ -103,7 +78,7 @@ $(document).ready(function() {
 			    $total=$orderItem['changed_total'];
 			    $totalPrice += $total;
 			    ?>
-			    <tr>
+			    <tr id='mymainTablePizzaListRow'>
     				<td><?php echo $product['name']?></td>
     				<td><?php echo $product['unitPrice']?></td>
     				<?php if ($extraPrice>0){ 
@@ -111,7 +86,7 @@ $(document).ready(function() {
     				    ?>
     				    <td>
     				    	<a tabindex="0" href="#" class="popover-dismiss" role="button" data-toggle="popover" 
-    				    		data-trigger="focus" title="Extra Price Details" data-html="true" data-content="<?php echo $extraString;?>">
+    				    		data-trigger="focus" title="Extra Price Details" style="color:#cc3300" data-html="true" data-content="<?php echo $extraString;?>">
     				    		<?php echo $extraPrice;?>
     				    	</a>
     				    </td>
@@ -121,7 +96,7 @@ $(document).ready(function() {
     				}
     				?>
                     <td><?php echo $noOfItems?></td>
-    				<td><?php echo $total?><small>CHF</small></td>
+    				<td><?php echo $total?><small> CHF</small></td>
                     <?php 
                     
                     if (strlen($orderItem['user_input'])>0){
@@ -136,15 +111,15 @@ $(document).ready(function() {
     				?>
 				</tr>
 			<?php } ?>
-			<tr>
+			<tr id='mymainTablePizzaListRow'>
                         <td colspan="5">Delivery Type</td>
                         <td>
                             <!-- Default switch -->
                             <div class="btn-group btn-group-toggle"
 						data-toggle="buttons">
                               <label
-							class="btn btn-outline-secondary btn-sm active">
-                                <input type="radio" name="deliveryType"
+							class="btn btn-outline-secondary btn-sm active" style='color:#cc3300;'>
+                                <input type="radio" name="deliveryType" 
 							id="take_away" value="Take Away" autocomplete="off" checked> Take Away
                               </label>
                               <label
@@ -155,7 +130,7 @@ $(document).ready(function() {
                             </div>
                         </td>
                     </tr>
-                    <tr>
+                    <tr id='mymainTablePizzaListRow'>
                         <td colspan="5">Payment Method</td>
                         <td>
                             <!-- Default switch -->
@@ -174,31 +149,30 @@ $(document).ready(function() {
                             </div>
                         </td>
                     </tr>
-                    <tr>
+                    <tr id='mymainTablePizzaListRow'>
                         <td colspan="5">Total number of Items</td>
                         <td><?php
                             echo $totalItems;
                             echo "<input type='hidden' name='totalItems' value='".$totalItems."'>";
                         ?></td>
                     </tr>
-                    <tr>
+                    <tr id='mymainTablePizzaListRow'>
                         <td colspan="5">Total Price</td>
                         <td><h4><?php echo $totalPrice;echo "<input type='hidden' name='totalPrice' value='".$totalPrice."'>"; ?> <small>CHF</small></h4></td>
                     </tr>
                     </tbody>
                 </table>
                 <!-- Button trigger modal -->
-                <button class="btn btn-primary btn-lg btn-action"
-		style="float:right" type="button">Confirm</button>
+                <button class="btn btn-warning btn-lg btn-action"
+		style="float:right;background:#ffad33;color:#cc3300;border:none;" type="button">Confirm</button>
                 <div class="modal fade" id="myModal1" role="dialog"
 		tabindex="-1">
                     <div class="modal-dialog">
-                        <div class="modal-content">
-
+                        <div class="modal-content" style='background:#ffcc66;color:#cc3300;border:none;'>
                             <div class="modal-header">
                                 <h5 class="modal-title">
 						
-						<font style="color:#999999;">Add Customer Details</font> <i
+						<font style="color:#cc3300;">Add Customer Details</font> <i
 							aria-hidden="true" class="fa fa-check-square"></i>
 					
 					</h5>
@@ -207,24 +181,27 @@ $(document).ready(function() {
                             </div>
                             <div class="modal-body">
                                 <div class="form-group">
-                                    <label for="customer_nick_name">Customer Nick Name</label>
+                                    <label for="customer_nick_name">Customer Nick Name *</label>
                                     <input required="required"
 							aria-describedby="fieldHelp" class="form-control"
 							id="customer_nick_name" name="customer_nick_name"
-							placeholder="Nick Name" type="text">
+							placeholder="Enter your nick Name" type="text" style='background:#ffcc80 '>
                                     <small class="form-text text-muted"
 							id="fieldHelp">Just for a note</small>
                                 </div>
 
                             </div>
                             <div class="modal-footer">
-                                <button class="btn btn-primary" id="atc"
+                                <button class="btn btn-warning" style='background:#ffad33;color:#cc3300;border:none;' id="atc"
 						type="submit">Proceed</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </form>
+</div>
+
+
     
     
    	<?php }?>

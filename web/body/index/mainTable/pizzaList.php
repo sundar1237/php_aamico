@@ -7,9 +7,9 @@ $cm40s = getFetchArray("select * from product where productType='pizza_40cm' ord
 		<div class="row">
 			<!-- column 1 begins -->
 			<div class="col">
-				<table class="table table-hover" style="background: #ffffe6;">
+				<table class="table table-hover">
 					<thead>
-						<tr style="color: #b32d00;">
+						<tr id='mymainTablePizzaListRow'>
 							<th scope="col">Name</th>
 							<th scope="col">Description</th>
 							<th scope="col" style="width: 15%">30cm</th>
@@ -22,19 +22,20 @@ $cm40s = getFetchArray("select * from product where productType='pizza_40cm' ord
     foreach ($cm30s as $row) {
         if ($count <= 18) {
         ?>
- 			<tr style="color: #b32d00; font-weight: bold;">
+ 			<tr id='mymainTablePizzaListRow'>
 				<td><?php echo $count.".".$row['name']?></td>
 				<td><small><?php echo $row['description']?></small></td>
 				<td style="width: 15%">
-					<button class="btn btn-success btn-sm btn-action" data-url="atc.php?id=<?php echo $row['id']?>" style="padding: 0px; margin: 0px; color: white" type="button">
+					
+					<button class="btn btn-link btn-sm btn-action" title="Add to cart" data-url="atc.php?id=<?php echo $row['id']?>" id='add_to_cart' type="button">
 						<?php echo $row['unitPrice']?> 
-						<span class="badge badge-light"><i aria-hidden="true" class="fa fa-cart-arrow-down"></i></span>
+						<!-- <span class="badge badge-light"><i aria-hidden="true" class="fa fa-cart-arrow-down" style='color:#cc3300;'></i></span> -->
 					</button>
 				</td>
 				<td style="width: 15%">
-					<button class="btn btn-success btn-sm btn-action" data-url="atc.php?id=<?php echo $cm40s[($count-1)]['id']?>" style="padding: 0px; margin: 0px; color: white" type="button"> 
+					<button class="btn btn-link btn-sm btn-action" title="Add to cart" id='add_to_cart' data-url="atc.php?id=<?php echo $cm40s[($count-1)]['id']?>" style="padding: 0px; margin: 0px; color:#cc3300;font-weight:bold;" type="button"> 
 						<?php echo $cm40s[($count-1)]['unitPrice'] ?> 
-						<span class="badge badge-light"><i aria-hidden="true" class="fa fa-cart-arrow-down"></i></span>
+						<!-- <span class="badge badge-light"><i aria-hidden="true" class="fa fa-cart-arrow-down"></i></span> -->
 					</button>
 				</td>
 			</tr>					 
@@ -49,9 +50,9 @@ $cm40s = getFetchArray("select * from product where productType='pizza_40cm' ord
 			<!-- column 1 ends -->
 			<!-- column 2 begins -->
 			<div class="col">
-				<table class="table table-hover" style="background: #ffffe6;">
+				<table class="table table-hover">
 					<thead>
-						<tr style="color: #b32d00;">
+						<tr id='mymainTablePizzaListRow'>
 							<th scope="col">Name</th>
 							<th scope="col">Description</th>
 							<th scope="col" style="width: 15%">30cm</th>
@@ -64,18 +65,18 @@ $cm40s = getFetchArray("select * from product where productType='pizza_40cm' ord
     foreach ($cm30s as $row) {
         if ($count > 18) {
         ?>
- 			<tr style="color: #b32d00; font-weight: bold;">
+ 			<tr id='mymainTablePizzaListRow'>
 				<td><?php echo $count.".".$row['name']?></td>
 				<td><small><?php echo $row['description']?></small></td>
 				<td style="width: 15%">
-					<button class="btn btn-success btn-sm btn-action" data-url="atc.php?id=<?php echo $row['id']?>" style="padding: 0px; margin: 0px; color: white" type="button">
+					<button class="btn btn btn-link btn-sm btn-action" data-url="atc.php?id=<?php echo $row['id']?>" id='add_to_cart' type="button">
 						<?php echo $row['unitPrice']?> 
-						<span class="badge badge-light"><i aria-hidden="true" class="fa fa-cart-arrow-down"></i></span>
+						<!-- <span class="badge badge-light"><i aria-hidden="true" class="fa fa-cart-arrow-down"></i></span> -->
 					</button>
 				</td>
 				<td style="width: 15%">
-					<button class="btn btn-success btn-sm btn-action" data-url="atc.php?id=<?php echo $cm40s[($count-1)]['id']?>" style="padding: 0px; margin: 0px; color: white" type="button"> <?php echo $cm40s[($count-1)]['unitPrice'] ?> 
-						<span class="badge badge-light"><i aria-hidden="true" class="fa fa-cart-arrow-down"></i></span>
+					<button class="btn btn btn-link btn-sm btn-action" data-url="atc.php?id=<?php echo $cm40s[($count-1)]['id']?>" id='add_to_cart' type="button"> <?php echo $cm40s[($count-1)]['unitPrice'] ?> 
+						<!-- <span class="badge badge-light"><i aria-hidden="true" class="fa fa-cart-arrow-down"></i></span> -->
 					</button>
 				</td>
 			</tr>					 

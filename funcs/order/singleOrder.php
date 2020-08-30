@@ -5,12 +5,39 @@
 function singleOrder($orderId)
 {
     $order = getFetchArray("select * from `order` where id=" . $orderId)[0];
+    if($order==null){
+        ?>
+<?php include 'web/head.php'; getHead("Order");?>
+<body>
+<script>
+$(document).keydown(function(e) {
+	var keyCode = e.keyCode; 
+	if (keyCode==37) {
+		window.location.href = 'admin.php?order_id=<?php echo ($orderId-1)?>';
+	}
+});
+</script>
+    <h1>order not found</h1>
+    <a href="admin.php"><i class="fa fa-home"></i> Admin Home</a> >
+    <p>press lef arrow key</p>
+</body>
+	<?php
+    }else{
     ?>
 <!DOCTYPE html>
 <html lang="zxx">
 <?php include 'web/head.php'; getHead("Order | ".$orderId);?>
 <body>
-
+<script>
+$(document).keydown(function(e) {
+	var keyCode = e.keyCode; 
+	if (keyCode==39){
+		window.location.href = 'admin.php?order_id=<?php echo ($orderId+1)?>';
+	}else if (keyCode==37) {
+		window.location.href = 'admin.php?order_id=<?php echo ($orderId-1)?>';
+	}
+});
+</script>
 <script>
 $(document).ready(function() {
     $("#paymentStatus").change(function () {
@@ -70,7 +97,9 @@ $(document).ready(function() {
 							<div class="col-md-12">
 								<nav aria-label="breadcrumb">
 									<ol class="breadcrumb">
-										<li aria-current="page" class="breadcrumb-item active"><small>Order > <?php echo $orderId?> >
+										<li aria-current="page" class="breadcrumb-item active"> 
+										<a href="admin.php"><i
+								class="fa fa-home"></i> Admin Home</a> >  <small>Order > <?php echo $orderId?> >
     				                	    <?php echo $order['created'] ?> >
                     				    	<?php echo $order['customerNickName'] ?></small>
 										</li>
@@ -199,9 +228,5 @@ $(document).ready(function() {
 <?php
 
 }
-
-
-
-
-
+}
 ?>

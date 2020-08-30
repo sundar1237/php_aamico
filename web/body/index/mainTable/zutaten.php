@@ -1,11 +1,11 @@
 <?php
 $zutaten = getFetchArray("select * from extra order by seqNo");
 ?>
-<div class="tab-pane fade" id="zutaten">
+<div class="tab-pane fade" id="zutaten" style='height:900px;'>
 	<div class="row">
 		<!-- column 1 starts -->
 		<div class="col">
-			<table class="table table-hover" style="background: #ffffe6;">
+			<table class="table table-hover">
 				<thead>
 					<tr style="color: #b32d00;">
 						<th scope="col">Name</th>
@@ -19,7 +19,7 @@ $zutaten = getFetchArray("select * from extra order by seqNo");
     foreach ($zutaten as $row) {
         if ($count <= 10) {
             ?>
- 			<tr style="color: #b32d00; font-weight: bold;">
+ 			<tr style="color: #b32d00;font-weight: bold;">
 						<td><?php echo $count.".".$row['name']?></td>
 						<td><small><?php echo $row['unitPrice']?></small></td>
 					</tr>					 
@@ -37,7 +37,7 @@ $zutaten = getFetchArray("select * from extra order by seqNo");
 
 		<!-- column 2 starts -->
 		<div class="col">
-			<table class="table table-hover" style="background: #ffffe6;">
+			<table class="table table-hover">
 				<thead>
 					<tr style="color: #b32d00;">
 						<th scope="col">Name</th>
@@ -52,7 +52,7 @@ $zutaten = getFetchArray("select * from extra order by seqNo");
     foreach ($zutaten as $row) {
         if ($count >= 11 && $count <= 20) {
             ?>
- 			<tr style="color: #b32d00; font-weight: bold;">
+ 			<tr style="font-weight: bold;color: #b32d00;">
 						<td><?php echo $count.".".$row['name']?></td>
 						<td><small><?php echo $row['unitPrice']?></small></td>
 					</tr>					 
@@ -69,7 +69,7 @@ $zutaten = getFetchArray("select * from extra order by seqNo");
 
 		<!-- column 3 starts -->
 		<div class="col">
-			<table class="table table-hover" style="background: #ffffe6;">
+			<table class="table table-hover">
 				<thead>
 					<tr style="color: #b32d00;">
 						<th scope="col">Name</th>
@@ -86,10 +86,10 @@ $zutaten = getFetchArray("select * from extra order by seqNo");
     foreach ($zutaten as $row) {
         if ($count > 20) {
             ?>
- 			<tr style="color: #b32d00; font-weight: bold;">
-						<td><?php echo $count.".".$row['name']?></td>
-						<td><?php echo $row['unitPrice']?></td>
-					</tr>					 
+ 			<tr style="font-weight: bold;color: #b32d00;">
+				<td><?php echo $count.".".$row['name']?></td>
+				<td><?php echo $row['unitPrice']?></td>
+			</tr>					 
 		<?php
         }
         $count ++;

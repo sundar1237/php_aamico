@@ -32,9 +32,15 @@ function verifyUser(){
     $id = getSingleValue("select id from users where username=".cheSNull($username)." and password = ".cheSNull($password));
     if(!is_null($id)){
         //print(" username ".$username." and password ".$password." and id is ".$id);
+        $role = getSingleValue("select role from users where id=".$id);
         $_SESSION['uid']=$id;
         $_SESSION['user']=$username;
-        header('Location: admin.php');
+        $_SESSION['role']=$role;
+        if($role=='guest'){
+            header('Location: index.php');
+        }else{
+            header('Location: admin.php');
+        }
     }else{
         include_once 'web/body/admin/login/login.php';
         displayLoginPage("Invalid entry");
@@ -52,6 +58,23 @@ function getOrderStatusValue($orderStatus){
         }
     }
     return $response;
+}
+
+function mailHelper($toAddress, $subject, $content){
+    ini_set("SMTP", "lx16.hoststar.hosting");
+    ini_set("smtp_port", "587");
+    ini_set("sendmail_from", "info@saransolutions.ch");
+    
+    $headers = "From: ";
+    $headers = "From: " . strip_tags("info@saransolutions.ch") . "\r\n";
+    $headers .= "Reply-To: ". strip_tags("info@saransolutions.ch") . "\r\n";
+    //$headers .= "CC: 123sdoiuerwo1237@gmail.com\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/html; charset=ISO-8859-1\r\n";
+    
+    mail($toAddress, $subject, $content, $headers);
+    //echo "Check your email now....&lt;BR/>";
+    
 }
 
 ?>

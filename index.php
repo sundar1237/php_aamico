@@ -1,26 +1,29 @@
-<?php 
+<?php
 include 'includes/cons.php';
+if (! isset($_SESSION['user'])) {
+    include_once 'web/body/admin/login/login.php';
+    displayLoginPage('');
+}else{
 ?>
 <!DOCTYPE html>
 <html lang="zxx">
 <?php include 'web/head.php'; getHead("Home");?>
 <body>
-	<!-- Page Preloder -->
-	<div id="preloder">
-		<div class="loader"></div>
-	</div>
-	<!-- Header Section Begin -->
-	<?php include 'web/body/header.php';?>
-	<!-- Header Section End -->
-	<div class="container-fluid">
+	<!-- Header Section End ffcc00 66 -->
+	<div class="container-fluid" id='mycontainer'>
+		<?php include 'web/body/header.php';?>		
 		<div class="row">
-			<div class="col-md-12">
-				<div class="row">
-					<?php include 'web/body/index/mainTable/main.php';?>
-				</div>
-			</div>
+		<?php
+		  $isOk = isItOpen();
+          if($isOk==false){
+		      echo '<img src="images/sorry_we_are_closed.png" class="rounded mx-auto d-block" alt="...">';  
+          }else{
+            include 'web/body/index/mainTable/main.php';
+          }
+		?>
 		</div>
 	</div>
 	<?php include 'web/body/index/indexJs.php';?>
 </body>
 </html>
+<?php } ?>

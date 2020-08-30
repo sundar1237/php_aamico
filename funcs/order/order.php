@@ -52,11 +52,11 @@ function show_ATC(){
         $checkboxes='';
         if (strpos($product['productType'], 'pizza') !== false){
             $checkboxes="<p style='margin:1px;padding:1px;'>
-                            <a class='btn btn-primary btn-sm' data-toggle='collapse' href='#collapseExample' role='button' aria-expanded='false' aria-controls='collapseExample'>Add Extra</a>
+                            <a class='btn btn-warning btn-sm' style='background:#ffad33;color:#cc3300;border:none;' data-toggle='collapse' href='#collapseExample' role='button' aria-expanded='false' aria-controls='collapseExample'>Add Extra</a>
                          </p>
                          <div class='collapse' id='collapseExample'>
                             <div class='card card-body' style='margin:1px;padding:1px;'>
-                            <table class='table table-sm' style='margin:1px;padding:1px;'><tbody>";
+                            <table class='table table-sm' style='margin:1px;padding:1px;background:#ffcc66;color:#cc3300;border:none;font-size:14px;' ><tbody>";
             $extras = getFetchArray("select * from extra order by seqNo");
             
             $i = 0;
@@ -67,17 +67,25 @@ function show_ATC(){
                 if ($extras[$i]['unitPrice']>1.0){$str1=$extras[$i]['unitPrice'];}
                 if ($extras[($i+1)]['unitPrice']>1.0){$str2=$extras[($i+1)]['unitPrice'];}
                 if ($extras[($i+2)]['unitPrice']>1.0){$str3=$extras[($i+2)]['unitPrice'];}
-                $checkboxes .= "<tr>
-                                    <td><input name='e_".$extras[$i]['id']."' value='".$extras[$i]['unitPrice']."' type='checkbox'> ".$extras[$i]['name']." ".$str1."</td>
-                                    <td><input name='e_".$extras[$i+1]['id']."' value='".$extras[$i+1]['unitPrice']."' type='checkbox'> ".$extras[$i+1]['name']." ".$str2."</td>
-                                    <td><input name='e_".$extras[$i+2]['id']."' value='".$extras[$i+2]['unitPrice']."' type='checkbox'> ".$extras[$i+2]['name']." ".$str3."</td>
-                                </tr>";
+                $checkboxes .= "<tr>";
+                if($extras[$i]!=null){
+                    $checkboxes .= "<td><input name='e_".$extras[$i]['id']."' value='".$extras[$i]['unitPrice']."' type='checkbox' style='background:#ffcc66;color:#cc3300;border:1px solid #e68a00;'> ".$extras[$i]['name']." ".$str1."</td>";
+                }
+                if($extras[$i+1]!=null){
+                    $checkboxes .= "<td><input name='e_".$extras[$i+1]['id']."' value='".$extras[$i+1]['unitPrice']."' type='checkbox' style='background:#ffcc66;color:#cc3300;border:1px solid #e68a00;'> ".$extras[$i+1]['name']." ".$str2."</td>";
+                }
+                
+                if($extras[$i+2]!=null){
+                    $checkboxes .= "<td><input name='e_".$extras[$i+2]['id']."' value='".$extras[$i+2]['unitPrice']."' type='checkbox' style='background:#ffcc66;color:#cc3300;border:1px solid #e68a00;'> ".$extras[$i+2]['name']." ".$str3."</td>";
+                }
+                 
+                $checkboxes .= "</tr>";
                 $i=$i+3;
             }
             $checkboxes .= "</tbody></table></div></div>";
         }
         echo '<div class="modal-body">
-	<table class="table table-sm" style="background:#f2f2f2;font-size:16px;">
+	<table class="table table-sm" style="background:#ffcc66;color:#cc3300;border:none;font-size:16px;">
         <input type="hidden" name="product_id" value="'.$product['id'].'"></input>
 		<tbody>
             <tr>
@@ -91,26 +99,28 @@ function show_ATC(){
 			</tr>
             <tr><td colspan="2">'.$checkboxes.'</td></tr>
             <tr>
-				<th scope="row">Extra Price</th><td style="text-align:right"><input type="text" style="width:50px;" name="extra_price" readonly value="0.0" id="extra_price"> <small>CHF</small></td>
+				<th scope="row">Extra Price</th><td style="text-align:right"><input type="text" style="width:50px;background:#ffcc66;color:#cc3300;border:1px solid #e68a00;" name="extra_price" readonly value="0.0" id="extra_price"> <small>CHF</small></td>
 			</tr>
             <tr>
-				<th scope="row">Extras</th><td style="text-align:right"><input type="text" style="width:35px;" name="total_options" readonly value="0" id="total_options"></td>
+				<th scope="row">Extras</th><td style="text-align:right"><input type="text" style="width:35px;background:#ffcc66;color:#cc3300;border:1px solid #e68a00;" name="total_options" readonly value="0" id="total_options"></td>
 			</tr>
 			<tr>
 				<th scope="row">Quantity</th>
 				<td style="text-align:right">
-					<select name="no_of_items" id="no_of_items">
+					<select name="no_of_items" id="no_of_items" style="background:#ffcc66;color:#cc3300;border:1px solid #e68a00;">
                         <option value="1" default>1</option>
                         <option value="2">2</option><option value="3" >3</option><option value="4">4</option>
+                        <option value="5">5</option><option value="6" >6</option><option value="7">7</option>
+                        <option value="8">8</option><option value="9" >9</option><option value="10">10</option>
                     </select>
 				</td>
 			</tr>
 			<tr>
 				<th scope="row">Total Price</th><td style="text-align:right">(('.$product['unitPrice'].' + <span id="e_price">0.0</span>) x <span id="changed_items">1</span>) =
-                <input type="text" style="width:60px;" name="changed_total" readonly id="changed_total" value="'.($product['unitPrice'] * 1).'"> <small>CHF</small></td>
+                <input type="text" style="background:#ffcc66;color:#cc3300;border:1px solid #e68a00;"  name="changed_total" readonly id="changed_total" value="'.($product['unitPrice'] * 1).'"> <small>CHF</small></td>
 			</tr>
             <tr>
-				<th scope="row">User Input</th><td><textarea name="user_input" style="width:100%;"></textarea></td>
+				<th scope="row">User Input</th><td><textarea name="user_input" style="width:100%;background:#ffcc66;color:#cc3300;border:1px solid #e68a00;"></textarea></td>
 			</tr>
 		</tbody>
 	</table>
@@ -118,7 +128,7 @@ function show_ATC(){
     }
 }
 
-function confirm_order(){
+function confirm_order(){    
     $type="Direct";
     $status="New";
     $paymentStatus="Unpaid";
@@ -136,7 +146,46 @@ function confirm_order(){
     $order_id=getSingleValue("SELECT max(id) id FROM `order`");
     $cart = $_SESSION["orderItemList"];
     insert_order_item($cart, $order_id);
-    
+    $order=getFetchArray("select * from `order` where id=".$order_id)[0];
+    $subject="[New] : ".$order_id." > ".$order['customerNickName']." ".$order['created'];
+    $message="<html><head><style>
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border-bottom: 1px solid #ddd;
+}
+th{
+    background-color: #4CAF50;
+    color: white;
+    border-right: 1px solid white;
+    font-weight: bold;
+}
+th, td {
+  padding: 15px;
+  text-align: left;  
+  font-size:14px;
+  font-family: 'Lucida Console', Courier, monospace;
+}
+</style></head><body>
+<table>
+	<tr>
+		<th>Nick Name</th>
+		<th>Order ID</th>
+		<th>Placed Date</th>
+		<th>Status</th>
+		<th>Payment Status</th>
+	</tr>
+	<tr>
+		<td>".$order['customerNickName']."</td>
+		<td>".$order['id']."</td>
+		<td>".$order['created']."</td>
+		<td>".$order['status']."</td>
+		<td>".$order['paymentStatus']."</td>
+	</tr>
+</table></body></html>";
+    mailHelper("saransolutions.in@gmail.com", $subject, $message);
     return $order_id;
 }
 

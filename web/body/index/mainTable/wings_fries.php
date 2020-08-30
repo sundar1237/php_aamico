@@ -14,7 +14,7 @@ $salat = getFetchArray("select * from product where productType='salat' order by
 						Fries (Klein)</li>
 				</ol>
 			</nav>
-			<table class="table table-hover">
+			<table class="mainTablePizzaList table-hover">
 				<thead>
 					<tr style="color: #b32d00;">
 						<th scope="col">Name</th>
@@ -50,7 +50,7 @@ $salat = getFetchArray("select * from product where productType='salat' order by
 					<li aria-current="page" class="breadcrumb-item active" style='font-weight:bold;color:#cc3300;'>Pasta</li>
 				</ol>
 			</nav>
-			<table class="table table-hover">
+			<table class="mainTablePizzaList table-hover">
 				<thead>
 					<tr style="color: #b32d00;">
 						<th scope="col">Name</th>
@@ -89,7 +89,7 @@ $salat = getFetchArray("select * from product where productType='salat' order by
 					<li aria-current="page" class="breadcrumb-item active" style='font-weight:bold;color:#cc3300;'>Wings & Fries (Grösse)</li>
 				</ol>
 			</nav>
-			<table class="table table-hover" >
+			<table class="mainTablePizzaList table-hover" >
 				<thead>
 					<tr style="color: #b32d00;">
 						<th scope="col">Name</th>
@@ -125,7 +125,7 @@ $salat = getFetchArray("select * from product where productType='salat' order by
 					<li aria-current="page" class="breadcrumb-item active" style='font-weight:bold;color:#cc3300;'>Salat</li>
 				</ol>
 			</nav>
-			<table class="table table-hover">
+			<table class="mainTablePizzaList table-hover">
 				<thead>
 					<tr id='mymainTablePizzaListRow'>
 						<th scope="col">Name</th>

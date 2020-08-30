@@ -9,9 +9,10 @@
 		<div class="loader"></div>
 	</div>
 	<!-- Header Section Begin -->
-	<?php include 'web/body/header.php';?>    
+	   
     <!-- Header Section End -->
-	<div class="container-fluid">
+	<div class="container-fluid" id='mycontainer' style='height:1000px;'> 
+		<?php include 'web/body/header.php';?> 
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
@@ -24,7 +25,7 @@
 	<script>
 (function() {
 
-    const idleDurationSecs = 15;    // X number of seconds
+    const idleDurationSecs = 60;    // X number of seconds
     const redirectUrl = '/aamico';  // Redirect idle users to this URL
     let idleTimeout; // variable to hold the timeout, do not modify
 
@@ -105,19 +106,19 @@ $(document).ready(function(){
     //$orderItemExtras=getFetchArray("select * from `order_item_extras` where order_item_id=".$id);
     
 ?>
-	<div class="jumbotron jumbotron-fluid" style="margin:5px;padding:5px;">
+	<div class="jumbotron jumbotron-fluid" style='background:#ffcc00;padding:0px;margin:0px;'>
 				<div class="container">
-					<h1 class="display-4" style="color:#009900">Confirmed Order</h1>
+					<h1 class="display-4" style="color:#cc3300">Confirmed Order</h1>
 					<p class="lead"><i class="fa fa-check-circle" aria-hidden="true"></i> Your order has been confirmed</p>
 				</div>
 			</div>
 
-			<nav aria-label="breadcrumb" style="margin:1px;padding:1px;">
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item active" aria-current="page">Order Details</li>
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb" style='background:#ffcc00;'>
+					<li class="breadcrumb-item active" aria-current="page" style='color: #cc3300;font-weight:bold;'>Order Details</li>
 				</ol>
 			</nav>
-			<table class="table table-sm">
+			<table class="mainTablePizzaList table-sm">
 				<thead>
 					<tr>
 						<th scope="col">Nick Name</th>
@@ -137,12 +138,12 @@ $(document).ready(function(){
 					</tr>
 				</tbody>
 			</table>
-			<nav aria-label="breadcrumb" style="margin:1px;padding:1px;">
-				<ol class="breadcrumb">
-					<li class="breadcrumb-item active" aria-current="page">Order Item Details</li>
+			<nav aria-label="breadcrumb">
+				<ol class="breadcrumb" style='background:#ffcc00;'>
+					<li class="breadcrumb-item active" aria-current="page" style='color: #cc3300;font-weight:bold;'>Order Item Details</li>
 				</ol>
 			</nav>
-			<table class="table table-hover" style="margin:5px;padding:5px;">
+			<table class="mainTablePizzaList table-hover" style="margin:5px;padding:5px;">
 				<thead>
 					<tr>
 						<th scope="col">Name</th>
@@ -161,7 +162,7 @@ $(document).ready(function(){
 					    $extraPrice=$orderItem['extrasPrice'];
 					    $extra=getFetchArray("select extra_id from `order_item_extras` where order_item_id=".$orderItem['id']);
 					?>
-					   <tr>
+					   <tr id='mymainTablePizzaListRow'>
     						<td><?php echo $product['name']?></td>
     						<td><?php echo $product['unitPrice']?></td>
     						<?php if ($extraPrice>0){ 
@@ -183,10 +184,10 @@ $(document).ready(function(){
     						<td><?php echo $orderItem['userInput']?></td>
 						</tr>
 						<?php } ?>			
-						<tr><td colspan="5">Delivery Type</td><td ><?php echo $order['deliveryType']?></td></tr>
-						<tr><td colspan="5">Payment Method</td><td ><?php echo $order['paymentMethod']?></td></tr>
-						<tr><td colspan="5">Total Items</td><td ><?php echo $order['totalNoOfItems']?></td></tr>
-						<tr>
+						<tr id='mymainTablePizzaListRow'><td colspan="5">Delivery Type</td><td ><?php echo $order['deliveryType']?></td></tr>
+						<tr id='mymainTablePizzaListRow'><td colspan="5">Payment Method</td><td ><?php echo $order['paymentMethod']?></td></tr>
+						<tr id='mymainTablePizzaListRow'><td colspan="5">Total Items</td><td ><?php echo $order['totalNoOfItems']?></td></tr>
+						<tr id='mymainTablePizzaListRow'>
 							<td colspan="5">Total Price</td><td ><h4><?php echo $order['totalPrice']?> <small>CHF</small></h4></td>
 					  </tr>
 				</tbody>

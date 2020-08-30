@@ -30,7 +30,7 @@ color:#ff6600;
 	border:1px solid #ffd633;padding: 1px; margin: 1px; color:#cc3300;font-weight:bold;
 }
 #mycontainer{
-	background:#ffcc66;
+	background:#ffcc00;
 	color:#cc3300;
 }
 
@@ -38,6 +38,33 @@ color:#ff6600;
 	 color:#cc3300;font-weight:bold;
 }
 
+
 #mytabheaders{
-	color:#cc3300;font-weight:bold;background:#ffdd99;border:1px solid #ffb31a
+	color:#cc3300;font-weight:bold;
 }
+
+
+
+.mainTablePizzaList {
+	width: 100%;
+	margin-bottom: 1rem;
+	color:#cc3300;font-weight:bold;
+}
+
+.mainTablePizzaList td,
+.mainTablePizzaList th {
+	padding: .75rem;
+	vertical-align: top;
+	border-top: 1px solid #ffa31a
+}
+
+.mainTablePizzaList thead th {
+	vertical-align: bottom;
+	/*border-bottom: 2px solid #ffa31a*/
+}
+
+.mainTablePizzaList tbody+tbody {
+	border-top: 2px solid #ffa31a
+}
+
+

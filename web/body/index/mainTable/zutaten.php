@@ -5,7 +5,7 @@ $zutaten = getFetchArray("select * from extra order by seqNo");
 	<div class="row">
 		<!-- column 1 starts -->
 		<div class="col">
-			<table class="table table-hover">
+			<table class="mainTablePizzaList table-hover">
 				<thead>
 					<tr style="color: #b32d00;">
 						<th scope="col">Name</th>
@@ -17,7 +17,7 @@ $zutaten = getFetchArray("select * from extra order by seqNo");
 					<?php
     $count = 1;
     foreach ($zutaten as $row) {
-        if ($count <= 10) {
+        if ($count <= 11) {
             ?>
  			<tr style="color: #b32d00;font-weight: bold;">
 						<td><?php echo $count.".".$row['name']?></td>
@@ -37,7 +37,7 @@ $zutaten = getFetchArray("select * from extra order by seqNo");
 
 		<!-- column 2 starts -->
 		<div class="col">
-			<table class="table table-hover">
+			<table class="mainTablePizzaList table-hover">
 				<thead>
 					<tr style="color: #b32d00;">
 						<th scope="col">Name</th>
@@ -50,7 +50,7 @@ $zutaten = getFetchArray("select * from extra order by seqNo");
 					<?php
     $count = 1;
     foreach ($zutaten as $row) {
-        if ($count >= 11 && $count <= 20) {
+        if ($count >= 12 && $count <= 22) {
             ?>
  			<tr style="font-weight: bold;color: #b32d00;">
 						<td><?php echo $count.".".$row['name']?></td>
@@ -69,7 +69,7 @@ $zutaten = getFetchArray("select * from extra order by seqNo");
 
 		<!-- column 3 starts -->
 		<div class="col">
-			<table class="table table-hover">
+			<table class="mainTablePizzaList table-hover">
 				<thead>
 					<tr style="color: #b32d00;">
 						<th scope="col">Name</th>
@@ -78,13 +78,10 @@ $zutaten = getFetchArray("select * from extra order by seqNo");
 					</tr>
 				</thead>
 				<tbody>
-
-					
-					
 					<?php
     $count = 1;
     foreach ($zutaten as $row) {
-        if ($count > 20) {
+        if ($count > 22) {
             ?>
  			<tr style="font-weight: bold;color: #b32d00;">
 				<td><?php echo $count.".".$row['name']?></td>

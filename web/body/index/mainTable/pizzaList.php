@@ -7,9 +7,9 @@ $cm40s = getFetchArray("select * from product where productType='pizza_40cm' ord
 		<div class="row">
 			<!-- column 1 begins -->
 			<div class="col">
-				<table class="table table-hover">
+				<table class="mainTablePizzaList table-hover">
 					<thead>
-						<tr id='mymainTablePizzaListRow'>
+						<tr>
 							<th scope="col">Name</th>
 							<th scope="col">Description</th>
 							<th scope="col" style="width: 15%">30cm</th>
@@ -50,9 +50,9 @@ $cm40s = getFetchArray("select * from product where productType='pizza_40cm' ord
 			<!-- column 1 ends -->
 			<!-- column 2 begins -->
 			<div class="col">
-				<table class="table table-hover">
+				<table class="mainTablePizzaList table-hover">
 					<thead>
-						<tr id='mymainTablePizzaListRow'>
+						<tr>
 							<th scope="col">Name</th>
 							<th scope="col">Description</th>
 							<th scope="col" style="width: 15%">30cm</th>

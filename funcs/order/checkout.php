@@ -52,7 +52,7 @@ $(document).ready(function() {
 </div>
 <form action="atc.php" method="POST">
 	<input type="hidden" name="action" value="confirm_order">
-	<table class="table table-hover" style="font-size: 14px;">
+	<table class="mainTablePizzaList table-hover" style="font-size: 14px;">
 		<thead>
 			<tr id='mymainTablePizzaListRow'>
 				<th scope="col">Name</th>
@@ -86,7 +86,7 @@ $(document).ready(function() {
     				    ?>
     				    <td>
     				    	<a tabindex="0" href="#" class="popover-dismiss" role="button" data-toggle="popover" 
-    				    		data-trigger="focus" title="Extra Price Details" style="color:#cc3300" data-html="true" data-content="<?php echo $extraString;?>">
+    				    		data-trigger="focus" title="Extra Price Details" style="background:#ffdb4d;padding:5px;color:#cc3300" data-html="true" data-content="<?php echo $extraString;?>">
     				    		<?php echo $extraPrice;?>
     				    	</a>
     				    </td>
@@ -118,7 +118,7 @@ $(document).ready(function() {
                             <div class="btn-group btn-group-toggle"
 						data-toggle="buttons">
                               <label
-							class="btn btn-outline-secondary btn-sm active" style='color:#cc3300;'>
+							class="btn btn-outline-secondary btn-sm active">
                                 <input type="radio" name="deliveryType" 
 							id="take_away" value="Take Away" autocomplete="off" checked> Take Away
                               </label>
@@ -164,11 +164,11 @@ $(document).ready(function() {
                 </table>
                 <!-- Button trigger modal -->
                 <button class="btn btn-warning btn-lg btn-action"
-		style="float:right;background:#ffad33;color:#cc3300;border:none;" type="button">Confirm</button>
+		style="float:right;background:#ffdb4d;color:#cc3300;border:none;" type="button">Confirm</button>
                 <div class="modal fade" id="myModal1" role="dialog"
 		tabindex="-1">
                     <div class="modal-dialog">
-                        <div class="modal-content" style='background:#ffcc66;color:#cc3300;border:none;'>
+                        <div class="modal-content" style='background:#ffcc00;color:#cc3300;border:none;'>
                             <div class="modal-header">
                                 <h5 class="modal-title">
 						
@@ -185,14 +185,14 @@ $(document).ready(function() {
                                     <input required="required"
 							aria-describedby="fieldHelp" class="form-control"
 							id="customer_nick_name" name="customer_nick_name"
-							placeholder="Enter your nick Name" type="text" style='background:#ffcc80 '>
+							placeholder="Enter your nick Name" type="text" style='background:#ffdb4d;'>
                                     <small class="form-text text-muted"
-							id="fieldHelp">Just for a note</small>
+							id="fieldHelp"><font style='color:#cc3300;'>Just for a note</font></small>
                                 </div>
 
                             </div>
                             <div class="modal-footer">
-                                <button class="btn btn-warning" style='background:#ffad33;color:#cc3300;border:none;' id="atc"
+                                <button class="btn btn-warning" style='background:#ffdb4d;color:#cc3300;border:none;' id="atc"
 						type="submit">Proceed</button>
                             </div>
                         </div>

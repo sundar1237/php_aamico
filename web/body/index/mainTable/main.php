@@ -21,9 +21,9 @@
 	<!-- Modal -->
 	<div class="modal fade" id="myModal" role="dialog" tabindex="-1">
 		<div class="modal-dialog modal-lg">
-			<div class="modal-content" style="background:#ffcc66;color:#cc3300;border:none;">
+			<div class="modal-content" style="background:#ffcc00;color:#cc3300;border:none;">
 				<form action="atc.php" method="POST" name="add_to_cart">
-					<div class="modal-header">
+					<div class="modal-header" style='border:none;'>
 						<h5 class="modal-title">
 							<font style="color: #cc3300;font-weight:bold;">Add to cart</font> <i
 								class="fa fa-check-square" aria-hidden="true"></i>
@@ -33,8 +33,8 @@
 					</div>
 					<div class="modal-body"></div>
 					<div class="modal-footer">
-						<button class="btn btn-secondary" style='background:#ffad33;color:#cc3300;border:none;' data-dismiss="modal">Close</button>
-						<button class="btn btn-primary" type="submit" id="atc" style='background:#ffad33;color:#cc3300;border:none;'>Proceed</button>
+						<button class="btn btn-secondary" style='background:#ffdb4d;color:#cc3300;border:none;' data-dismiss="modal">Close</button>
+						<button class="btn btn-primary" type="submit" id="atc" style='background:#ffdb4d;color:#cc3300;border:none;'>Proceed</button>
 					</div>
 				</form>
 			</div>

@@ -40,11 +40,22 @@ function isItOpenHelper($targetDay,$openHour, $openMinute, $closeHour, $closeMin
 function isItOpen(){
     $isOk=isItOpenHelper("Wed",11,0,23,30);
     if (!$isOk){
-        $isOk=isItOpenHelper("Thu",19,13,23,30);
+        $isOk=isItOpenHelper("Thu",11,0,23,30);
         if(!$isOk){
             $isOk=isItOpenHelper("Fri",11,30,24,0);
+            if(!$isOk){
+                $isOk=isItOpenHelper("Sat",11,30,24,0);
+                if(!$isOk){
+                    $isOk=isItOpenHelper("Sun",11,30,23,30);
+                    if(!$isOk){
+                        $isOk=isItOpenHelper("Mon",11,30,23,30);
+                        if(!$isOk){
+                            $isOk=isItOpenHelper("Tue",11,33,24,30);
+                        }
+                    }
+                }
+            }
         }
     }
-    //return $isOk;
-    return true;
+    return $isOk;    
 }
